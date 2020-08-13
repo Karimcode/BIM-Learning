@@ -1,0 +1,171 @@
+.participation-card {
+  height: 390px;
+  width: 280px;
+  color: rgb(30, 30, 30);
+  margin-bottom: 30px;
+  margin-top: 30px;
+  box-shadow: 3px 3px 5px lightgrey;
+  h4, h5 {
+    margin: 5px;
+  }
+  position: relative;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+.button-delete-participation {
+ position: absolute;
+  top: -12.5px;
+  right: -12.5px;
+  font-size: 20px;
+  background-color: lightgrey;
+  color: white !important;
+  padding: 3px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: grey;
+    opacity: 0.5;
+    text-decoration: none;
+
+  }
+}
+
+.participation-card-triangle {
+  position: absolute;
+  top: 0px;
+  left: 1px;
+}
+
+.participation-header {
+  height: 190px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+
+
+.participation-body {
+  height: 120px;
+  position: relative;
+  background-color: #f7edde;
+  fill: #f7edde;
+}
+
+.participation-title-topic h4 {
+  display: inline-block;
+  color: white;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+
+
+.participation-lesson-info {
+  position: absolute;
+  padding: 15px 15px;
+  text-align: right;
+  top: -18px;
+  h2 {
+    text-align: right;
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+  p {
+    margin: 0;
+    font-size: 13px;
+  }
+}
+.participation-position-triangle {
+  position: absolute;
+  top: -80px
+}
+
+.participation-footer {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f7edde;
+}
+
+.participation-date {
+  p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: grey;
+  }
+  em {
+    font-size: 12px;
+    color: grey;
+  }
+  text-align: right;
+}
+
+.participation-professor-info {
+  height: 50px;
+  margin-left: 15px;
+  p {
+    margin: 0;
+  }
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background: black;
+  opacity: 0;
+  border-radius: 0 0 20px 20px;
+}
+.card-link:hover {
+  opacity: 0.02;
+}
+
+.card-stars {
+  display: flex;
+}
+
+.card-review-profile {
+  background-color: white;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  min-height: 590px;
+}
+
+.participation-price-button {
+  background-color: #8a3331;
+  border-radius: 5%;
+  color: white;
+  text-align: center;
+  padding-left: 12px;
+  padding-right:12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+  text-decoration: none;
+  position: absolute;
+  top: -45px;
+  left: 110px;
+  font-size: 16px;
+  margin: 4px 2px;
+  font-family:'Questrial', sans-serif;
+  box-shadow: 4px 5px 0.5px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+
+

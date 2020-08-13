@@ -1,0 +1,100 @@
+// Banner
+.participations-banner {
+  text-align: center;
+  height: 20vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5
+) 50%), url(asset-path("5.jpeg"));
+  background-position: center;
+}
+.participations-banner h1 {
+  padding-top: 10px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color:white;
+  text-shadow: 0px 0px 16px -2px grey;
+}
+
+.typewriter h1 {
+  font-size: 'Catamaran', regular !important;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em white; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .13em; /* Adjust as needed */
+  animation:
+    typing 2s steps(30, end),
+    blink-caret .75s ;
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15%;
+    color: white;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+//content
+.container-participations {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+
+}
+
+.upcoming-classes-title h3 {
+  margin-bottom: 0px;
+  padding-left: 55px;
+}
+
+
+.past-classes-title {
+  padding-left: 50px;
+}
+.welcome-my-lessons {
+  padding-bottom: 20px;
+  padding-left: 55px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color: #8a3331;
+  background-color: white;
+}
+
+.participation-card {
+  margin-bottom: 50px;
+}
+
+
+.wrapper-cards-past {
+  background-color: white;
+}
+.wrapper-cards-upcoming {
+  position: relative;
+  background-color: #eaeaea;
+}
+
+.no-lesson-upcoming {
+  position: absolute;
+  top: 50px;
+  left: 300px;
+}

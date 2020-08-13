@@ -10,3 +10,96 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
+// /* Main navbar */
+// .navbar-lessen {
+//   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+//   background: #8a3331;
+//   transition: all 0.3s ease;
+//   height: 68px;
+//   padding: 0px 28px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   top: 0;
+//   width: 100%;
+//   z-index:1000;
+// }
+
+// div#navbar_home {
+//     position: fixed;
+//     background: transparent;
+//     box-shadow: none;
+//     transition: 0.5s background-color ease;
+
+//     &.navbar-lessen-red {
+//       background: #8a3331;
+//       box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+//       transition: background-color 200ms linear;
+//     }
+// }
+
+
+// /* Logo */
+// .navbar-lessen-brand img {
+//   height: 70px;
+//   padding-top: 10px;
+// }
+
+// /* User Avatar */
+// .navbar-lessen .avatar {
+//   height: 37px;
+//   width: 37px;
+//   border-radius: 50%;
+// }
+
+// /* Right section */
+// .navbar-lessen-right {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
+
+// /* Basic navbar item */
+// .navbar-lessen-item {
+//   cursor: pointer;
+//   padding: 0 20px;
+//   color: white;
+//   &:hover {
+//     color: white;
+//     text-decoration: none;
+//   }
+// }
+
+
+// /* Dropdown menu */
+// .navbar-lessen-dropdown-menu {
+//   margin-top: 15px;
+//   box-shadow: 1px 1px 4px #E6E6E6;
+//   border-color: #E6E6E6;
+// }
+// .navbar-lessen-dropdown-menu li > a {
+//   transition: color 0.3s ease;
+//   font-weight: lighter !important;
+//   color: #999999 !important;
+//   font-size: 15px !important;
+//   line-height: 22px !important;
+//   padding: 10px 20px;
+// }
+// .navbar-lessen-dropdown-menu li > a:hover {
+//   background: transparent !important;
+//   color: black !important;
+// }
+// .navbar-lessen-dropdown-menu:before {
+//   content: ' ';
+//   height: 10px;
+//   width: 10px;
+//   position: absolute;
+//   right: 10px;
+//   top: -6px;
+//   background-color: white;
+//   transform: rotate(45deg);
+//   border-left: 1px solid #E6E6E6;
+//   border-top: 1px solid #E6E6E6;
+// }

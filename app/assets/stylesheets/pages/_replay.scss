@@ -1,0 +1,137 @@
+.review-head {
+  height: 90px;
+  margin: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-title {
+  text-align: center;
+  width: 70%;
+  h1 {
+    color: #8a3331;
+  }
+}
+
+.replay-first-column {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  flex-direction: column;
+  align-items: center;
+  // box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+}
+.replay-second-column {
+  display: flex;
+  // justify-content: space-between;
+  width: 35%;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40px;
+  .card-review-profile{
+    overflow: scroll;
+    margin:0;
+  }
+}
+
+.replay-ressources-title {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  h4 {
+    padding-top:7px;
+  }
+  h2{
+    margin-top:5px;
+  }
+}
+
+.merci-replay-box {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding:25px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+}
+.ressources-replay-box {
+  width: 100%;
+  background-color: white;
+  margin-top: 15px;
+  padding:25px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  .resources-lists {
+    display: flex;
+    ul:first-child{
+      margin-right:150px;
+    }
+  }
+}
+
+.recap-replay-box {
+  display:flex;
+  width: 90vw;
+  margin: 30px auto;
+  background-color: white;
+  padding: 25px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  height:350px;
+  img {
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+    flex:0 1 auto;
+    transition: all .3s ease;
+
+    &.active {
+      height: 300px;
+      width: 300px;
+    }
+  }
+}
+
+.container-replaylessons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding-top: 50px;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+
+.prof-anna-description {
+  margin-top: 7px;
+}
+
+.review-btn-position {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.btn-review {
+  width: 100%;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+
+}
+
+.Fake-links{
+  width: 100%;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  color:grey;
+
+}

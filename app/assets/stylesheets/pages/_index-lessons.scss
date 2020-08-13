@@ -1,0 +1,51 @@
+// Banner
+.index-banner {
+  text-align: center;
+  height: 40vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7
+) 50%), url(asset-path("8.jpg"));
+  background-position: center;
+}
+
+.index-banner p {
+  padding-top: 10px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color:white;
+  font-size: 30px;
+}
+
+// search
+
+
+// container
+.pull-up {
+  margin-top: -40px;
+}
+
+.lessons-searchbar {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  form {
+    height:100%
+  }
+
+
+
+}
+
+.title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.form-control:focus{
+  border-color:#EE5F5B!important;
+  box-shadow:none;
+}

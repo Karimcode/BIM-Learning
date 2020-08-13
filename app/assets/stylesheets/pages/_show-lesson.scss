@@ -1,0 +1,229 @@
+// Banner
+.lesson-banner {
+  text-align: center;
+  height: 30vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5
+) 50%), url(asset-path("1.jpg"));
+}
+
+.lesson-banner p {
+  padding-top: 10px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color:white;
+  font-size: 30px;
+}
+
+
+//page layout
+.container-showlessons {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.first-column {
+  width: 55%;
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.card-container-show {
+  margin: 0 200px;
+}
+
+.second-column {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.paddding-lesson-name {
+  margin-top: 9px;
+}
+
+.title-sur {
+  display: flex;
+  justify-content: center;
+}
+
+//content design
+
+.box-description {
+  padding-top: 10px;
+}
+.container-showlessons h1 {
+  color: #8A3231;
+}
+.price {
+  padding: 25px;
+  margin-bottom: 50px;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  padding-bottom: 30px;
+  border-radius: 4px;
+  .price-box {
+    padding: 20px 25px;
+    border-radius: 2px;
+    color: black;
+    border-radius: 4px;
+  }
+}
+
+.live-price-size h4 {
+  padding-top: 10px;
+  font-size: 45px;
+  color: black
+}
+
+.participants-live {
+  color: black;
+}
+
+.lign-a .h1 {
+    letter-spacing: 3px;
+}
+
+div.bordure {
+border-bottom:1px solid grey;
+}
+
+.text-space-profile {
+  padding-top: 40px;
+}
+
+.btn-position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.background-related{
+  background-color: white;
+  box-shadow: 2px 2px 2px 4px rgba(grey, 0.1);
+  padding-top: 20px;
+  .container-related {
+    padding-bottom: 40px;
+    margin-right: 160px;
+    margin-left: 160px;
+      .container-box {
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}
+
+.review-box {
+  overflow: scroll;
+  justify-content: center;
+  font-size: 14px;
+  color: grey;
+}
+
+.related-lesson-card {
+  margin: 10px;
+}
+.inline {
+  display: inline
+}
+
+.margin-left-20 {
+  margin-left: 20px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.teacher-title {
+  display: flex;
+  align-items: center;
+}
+// .card-container-show h4 {
+//   background-color: #EA8C55;
+//   border-style: outset;
+//   color: white;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   padding-left: 10px;
+// }
+
+
+
+.card-container-show {
+padding-top: 30px;
+}
+
+
+.background-related-cards {
+  margin-top: 30px;
+  padding-bottom: 10px;
+  background-color: #eaeaea;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+.lesson-date-time {
+  padding-top: 8px;
+}
+
+.modal-footer {
+    padding: 5px;
+    text-align: right;
+    border-top: none!important;
+}
+.modal-header {
+  background-color: #8a3331;
+  color: white;
+  .modal-title {
+    font-size: 22px;
+  }
+}
+
+
+.btn-inscription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 7px;
+    background-color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.close {
+    float: right;
+    font-size: 27px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.2;
+    display: none!important;
+    }
+
+.boldeddate{
+  font-weight:bold;
+}
+
+#reviews_list {
+    height: 150px;
+    overflow: scroll;
+    margin-bottom:15px;
+}
