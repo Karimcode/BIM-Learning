@@ -1,2 +1,115 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="background-top-teacher">
+  <div class="container-teacher">
+    <div class="avatar-photo text-center teacher-avatar">
+      <% if @user.photo_user.present? %>
+        <% avatar =  @user.photo_user%>
+      <% else %>
+        <% avatar = image_path("user-default.jpg") %>
+      <% end %>
+      <%= cl_image_tag(avatar, class:"avatar-profile") %>
+    </div>
+
+    <div class="text-center-teacher">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <p class="email-teacher"><%= @user.email %></p>
+        </div>
+        <div class="button-profile-position">
+          <% if @user == current_user %>
+            <%= link_to "Edit profile", edit_user_path(@user), class:"btn-lessen" %>
+          <% end %>
+        </div>
+        <p><%=  @user.lessons.count %> cours effectués</p>
+
+        </div>
+        <div class="right-part-top">
+          <div class="next-class">
+              <% is_none = true %>
+              <p style="color:black"><strong>Prochain cours</strong>
+                </p>
+                <% upcoming_lessons = [] %>
+                <% @user.lessons.each do |lesson|%>
+                  <% if Date.today <= lesson.date %>
+                    <% upcoming_lessons << lesson %>
+                    <% is_none = false %>
+                  <% end %>
+                  <% unless is_none %>
+                    <% upcoming_lessons.sort_by {|lesson| lesson.date} %>
+                    <%= date = upcoming_lessons.first.date.strftime("%A, %b %d") %> à <%= upcoming_lessons.first.starts_at %></p>
+                    <div class="button-rejoindre-teacher">
+                      <div><%= link_to "Rejoindre ce cours", lesson_live_path(upcoming_lessons.first), class: "btn-lessen" %></div>
+                    </div>
+                <% end %>
+                </div>
+              <% if  is_none %>
+                <p>Pas de leçons à venir</p>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-teacher">
+          <div class="first-column-teacher">
+            <div class="background-matiere">
+              <h5><strong>Matières enseignées</strong></h5>
+              <div class="disposition-tag">
+                <% @user.lessons.pluck(:subtopic).uniq.each do |subtopic| %>
+                  <div class="tag-word">
+                    <p><%= subtopic %></p>
+                  </div>
+                <% end %>
+              </div>
+              <h5><strong>Niveaux</strong></h5>
+              <div class="disposition-tag">
+                <% @user.lessons.pluck(:grade).uniq.each do |grade| %>
+                  <div class="tag-word">
+                    <p><%= grade %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="background-review">
+              <h5><strong>À propos</strong></h5>
+              <p>J'ai vécu à Paris jusque mes 18ans au lycée Jeannine Manuel. Je suis partie étudier les mathématiques quantiques et la neuroscience à Northwestern University aux Etats Unis. J'ai découvert là-bas mon interêt pour transmettre l'apprentissage à autrui et en revenant à Paris, j'ai décide de commencer une carrière en tant que professeur de mathématiques. </p>
+            </div>
+          </div>
+          <div class="second-column-teacher">
+            <div class="methodologie-card">
+              <h5><strong>Méthodologie</strong></h5>
+              <p>Découragé par les mauvaises notes ? Dépassé par le programme ? Inquiet de votre niveau ?
+              Tout peut encore s'arranger !
+              Grâce à des cours personnalisés, je vous aide à refaire votre retard, comprendre les chapitres en cours, trouver un bon rythme de travail et reprendre confiance en vous.
+              Ensemble, nous évaluons votre niveau actuel afin de déceler puis combler les lacunes qui vous handicapent.
+              Parallèlement, je revois avec vous le cours donné dans votre établissement, en l'expliquant avec d'autres exemples et des exercices très progressifs.
+              Nous préparons calmement les contrôles écrits, en anticipant les futures questions afin d'y répondre en classe sans paniquer.
+              Quel que soit votre niveau et votre section, je suis là pour vous faire progresser de manière constante et durable, en vous soulageant de "l'angoisse des maths".!</p>
+            </div>
+            <div class="parcours-card">
+              <h5><strong>Parcours</strong></h5>
+              <ul>
+                <li>Plus de 5 années d'expérience</li>
+
+                <li>Progrès rapides: gain de 3 points dans la moyenne rapidement peu importe le niveau de départ. Voire plus !
+                -ex: élève ayant eu 9 de moyenne en mathématiques, qui a eu 16 à son épreuve de maths au Bac après une année de cours à mes côtés.</li>
+
+                <li>Grande connaissance des "sujets-type" (BAC ou BREVET), préparation spéciale pour ces épreuves.</li>
+
+                <li>Apprentissage de la "présentation" : comment organiser proprement un contrôle ou DST et gagner des points "facilement"</li>
+
+                <li>Transmission de "l'amour des maths", combat de "la peur des maths"</li>
+
+                <li>Capacité à trouver le problème et à proposer des solutions adéquates (chasse aux lacunes, exercices spécifiques, fiches-méthode, rappel du cours)</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <div class="button-profile-position">
+          <% if @user == current_user %>
+            <%= link_to "Edit profile", edit_user_path(@user), class:"btn-lessen" %>
+          <% end %>
+        </div>
+      <% end %>
+
+
+

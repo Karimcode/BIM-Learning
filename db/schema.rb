@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_200022) do
+ActiveRecord::Schema.define(version: 2020_08_14_210012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,11 @@ ActiveRecord::Schema.define(version: 2020_08_14_200022) do
   create_table "messages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "content"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "lesson_id"
+    t.index ["lesson_id"], name: "index_messages_on_lesson_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -70,6 +74,8 @@ ActiveRecord::Schema.define(version: 2020_08_14_200022) do
   end
 
   add_foreign_key "lessons", "users"
+  add_foreign_key "messages", "lessons"
+  add_foreign_key "messages", "users"
   add_foreign_key "participations", "lessons"
   add_foreign_key "participations", "users"
 end
