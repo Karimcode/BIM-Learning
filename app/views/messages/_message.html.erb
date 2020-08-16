@@ -1,0 +1,10 @@
+<div class="<%= message_class_names(user_is_messages_author, user_is_teacher) %>">
+  <% if !message.user.photo_user.present? %>
+  <%= image_tag("user-default.jpg", class: "avatar") %>
+  <% else %>
+  <%= cl_image_tag message.user.photo_user, class: "avatar" %>
+  <% end %>
+
+  <div class="message-content"><%= message.content %></div>
+</div>
+

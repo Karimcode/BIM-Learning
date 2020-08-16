@@ -4,10 +4,18 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
-
   end
 
   def new
+    @lesson = Lesson.new
+  end
+
+  def live
+    @lesson = Lesson.find(params[:lesson_id])
+  end
+
+  def replay
+    @lesson = Lesson.find(params[:lesson_id])
   end
 
   def edit
@@ -19,9 +27,5 @@ class LessonsController < ApplicationController
   def destroy
   end
 
-  def live
-  end
 
-  def replay
-  end
 end

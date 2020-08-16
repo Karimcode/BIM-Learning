@@ -1,2 +1,96 @@
-<h1>Lessons#live</h1>
-<p>Find me in app/views/lessons/live.html.erb</p>
+
+
+<div class="main-live">
+
+
+
+  <div class="livevideo">
+    <iframe width="100%" height="100%" src="https://player.twitch.tv/?channel=nickatic" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+
+
+  <div class="chat">
+    <!-- <div class="chat-header"><h4><#%= @lesson.name %> chatroom</h4></div> -->
+    <div class="messages">
+      <% @lesson.messages.each do |message| %>
+      <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user, user_is_teacher: message.user_is_teacher? %>
+      <% end %>
+    </div>
+    <div id="create-message">
+      <%= simple_form_for [ @lesson, Message.new ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Tapez votre message ici" %>
+      <%= f.submit "Add message", class: "btn btn-blue", id: "chat-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+ <div class="container-showlessons">
+    <div class="first-column">
+    <div class="card-title-topic">
+      <% if @lesson.topic == "Français" %>
+        <h4 style="background-color: #EA8C55;"><%=@lesson.topic %></h4>
+      <% elsif @lesson.topic == "Mathématiques" %>
+        <h4 style="background-color: #c75146;"><%=@lesson.topic %></h4>
+      <% elsif @lesson.topic == "Physique-chimie" %>
+        <h4 style="background-color: #540804;" %><%=@lesson.topic %></h4>
+      <% elsif @lesson.topic == "SVT" %>
+        <h4 style="background-color: #32493E;" %><%=@lesson.topic %></h4>
+      <% elsif @lesson.topic == "Philosophie" %>
+        <h4 style="background-color: #3d588e;" %><%=@lesson.topic %></h4>
+      <% end %>
+    </div>
+    <h1 class="paddding-lesson-name"><%=@lesson.name%></h1>
+    <h4><strong><%=@lesson.subtopic%></strong> </h4>
+    <h6><em><%= @lesson.duration%> minutes</em></h6>
+    <div class="box-description">
+      <h4>A propos du cours</h4>
+      <p><%=  @lesson.description%></p>
+      <h1 class="lign-a"></h1>
+      <div class="bordure"></div>
+      <h1 class="lign-a"></h1>
+      <h4>Compétences dans cette classe</h4>
+
+      <h1 class="lign-a"></h1>
+      <div class="bordure"></div>
+      <h1 class="lign-a"></h1>
+      <h4>Objectifs</h4>
+
+    </div>
+    </div>
+
+    <div class="second-column">
+      <div class="card-review-profile">
+        <div class="card-profile">
+          <h3>Le professeur</h3>
+          <div class="teacher-title">
+            <% if @lesson.teacher.photo_user.present? %>
+              <%= cl_image_tag(@lesson.teacher.photo_user, class: "avatar-large") %>
+            <% else %>
+              <%= cl_image_tag(image_path("user-default.jpg"), class: "avatar-large") %>
+            <% end %>
+            <h5><%=@lesson.teacher.first_name%> <%=@lesson.teacher.last_name%></h5>
+          </div>
+          <p>J'ai vécu à Paris jusque mes 18 ans au lycée Jeannine Manuel. Je suis partie étudier les mathématiques quantiques et la neuroscience à Northwestern University aux Etats Unis. J'ai découvert là-bas mon interêt pour transmettre l'apprentissage à autrui et en revenant à Paris, j'ai décidé de commencer une carrière en tant que professeur de mathématiques. </p>
+          <h1 class="lign-a"></h1>
+          <h1 class="lign-a"></h1>
+          <%= link_to "Voir le profil", user_path(@lesson.teacher),  class:"text-space-profile" %>
+            <h1 class="lign-a"></h1>
+            <div class="bordure"></div>
+            <h1 class="lign-a"></h1>
+          <h4>Avis sur ce professeur:</h4>
+        </div>
+        <div class="review-box" id="reviews_list">
+          <% if @lesson.teacher.reviews.blank? %>
+            <strong>Pas d'avis d'élèves pour ce professeur</strong>
+          <% else %>
+            <div id="reviews_list">
+              <%= render 'reviews/index', reviews: @lesson.teacher.reviews.order(created_at: :desc) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

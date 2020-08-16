@@ -1,35 +1,32 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
-
-
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
-
-console.log('Hello World from Webpacker')
-
-
-// ----------------------------------------------------
-// Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
-// WRITE YOUR OWN JS STARTING FROM HERE 👇
-// ----------------------------------------------------
-
-// External imports
 import "bootstrap";
+import "slick-carousel";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import flatpickr from "flatpickr";
+import { initFlatpickr } from "../plugins/flatpickr";
+import { initChannel, scrollLastMessageIntoView } from "../plugins/action_cable";
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { submitChatForm } from '../components/submitChatForm';
+import { initFormRefresh } from '../components/sort_by';
+import { carouselIndex } from '../components/carousel-participations-index.js';
+import { initStars } from '../components/rating-stars';
+import { initHowBox } from '../components/how-diagram-home';
+import { initCountdown } from '../components/lesson-countdown';
+import {initGallery} from '../components/photogallery'
+import { initShowReview } from '../components/show-reviews';
 
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
+
+
+initFlatpickr();
+initUpdateNavbarOnScroll();
+initChannel();
+scrollLastMessageIntoView();
+submitChatForm();
+initFormRefresh()
+carouselIndex();
+initStars();
+initHowBox();
+initCountdown();
+initGallery();
+initShowReview();

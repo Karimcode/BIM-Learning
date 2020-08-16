@@ -60,13 +60,7 @@
                 <% end %>
               </div>
               <h5><strong>Niveaux</strong></h5>
-              <div class="disposition-tag">
-                <% @user.lessons.pluck(:grade).uniq.each do |grade| %>
-                  <div class="tag-word">
-                    <p><%= grade %></p>
-                  </div>
-                <% end %>
-              </div>
+
             </div>
             <div class="background-review">
               <h5><strong>À propos</strong></h5>

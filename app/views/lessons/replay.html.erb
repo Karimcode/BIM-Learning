@@ -1,2 +1,140 @@
-<h1>Lessons#replay</h1>
-<p>Find me in app/views/lessons/replay.html.erb</p>
+<div class="review-head">
+  <div class="review-title">
+    <h1><strong>REPLAY</strong></h1>
+  </div>
+   <!-- Modal -->
+  <div class="modal fade" id="ReviewModal" tabindex="-1" role="dialog" aria-labelledby="ConfirmationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><%=@lesson.name%></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class= "modal-body">
+        <%= simple_form_for Review.new, url: lesson_reviews_path(@lesson) do |f| %>
+          <%= f.input :rating, label: "Note", required: false, input_html: {id: 'star-id'} %>
+          <%= f.input :content, label: "Commentaire", required: false, input_html: { class: "modal-review-content"} %>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-position">
+               <%= f.submit  "Valider", class: "btn-lessen" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-live">
+
+  <div class="livevideo">
+  <iframe
+      src="https://player.twitch.tv/?video=348600783"
+      height="100%"
+      width="100%"
+      frameborder="<frameborder>"
+      scrolling="<scrolling>"
+      allowfullscreen="<allowfullscreen>">
+  </iframe>
+    </div>
+  <div class="chat">
+    <!-- <div class="chat-header"><h4><#%= @lesson.name %> chatroom</h4></div> -->
+    <div class="messages">
+      <% @lesson.messages.each do |message| %>
+      <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user, user_is_teacher: message.user_is_teacher? %>
+      <% end %>
+    </div>
+    <div id="create-message">
+      <%= simple_form_for [ @lesson, Message.new ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Tapez votre message ici" %>
+      <%= f.submit "Add message", class: "btn btn-blue", id: "chat-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+ <div class="container-replaylessons">
+  <div class="replay-first-column">
+    <div class="replay-ressources-title">
+      <div class="card-title-topic">
+        <% if @lesson.topic == "Français" %>
+          <h4 style="background-color: #EA8C55;"><%=@lesson.topic %></h4>
+        <% elsif @lesson.topic == "Mathématiques" %>
+          <h4 style="background-color: #c75146;"><%=@lesson.topic %></h4>
+        <% elsif @lesson.topic == "Physique-chimie" %>
+          <h4 style="background-color: #540804;" %><%=@lesson.topic %></h4>
+        <% elsif @lesson.topic == "SVT" %>
+          <h4 style="background-color: #32493E;" %><%=@lesson.topic %></h4>
+        <% elsif @lesson.topic == "Philosophie" %>
+          <h4 style="background-color: #3d588e;" %><%=@lesson.topic %></h4>
+        <% end %>
+      </div>
+      <h2><strong><%=@lesson.name%></strong></h2>
+      <h4><strong><%=@lesson.subtopic%></strong> </h4>
+      <h5>Cours de <em><%= @lesson.duration%> minutes</em> donné le <em><%= @lesson.date.to_s.split("-").reverse.join("/") %></em></h5>
+    </div>
+
+
+    <div class="merci-replay-box">
+      <h4><strong>Commentaire du professeur</strong></h4>
+      <p>Merci d'avoir participé à mon cours sur les limites de suites. J'espère qu'il a pu vous préparer pour les semaines à venir et que vous avez une plus grande maitrise du sujet. J'ai ajouté sur cette page des resources si besoin et un récapitulatif et la solution de l'approfondissement. N'hésitez pas à m'envoyer un email si vous avez des questions!</p>
+    </div>
+
+    <div class="ressources-replay-box">
+      <h4><strong>Ressources</strong></h4>
+      <div class="resources-lists">
+        <ul>
+          <li> <%= link_to "Suites-cours.pdf", class:"Fake links" %><br> </li>
+          <li>  <%= link_to "Limites-cours.pdf", class:"Fake links" %><br></li>
+        </ul>
+        <ul>
+          <li>  <%= link_to "Observation-graphique.pdf", class:"Fake links" %><br></li>
+          <li> <%= link_to "Approfondissement-solution.pdf", class:"Fake links" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="replay-second-column">
+    <div class="review-btn-position">
+      <button class="btn-lessen btn-review" data-toggle="modal" data-target="#ReviewModal">Ajouter un avis
+      </button>
+    </div>
+    <div class="card-review-profile">
+      <div class="card-profile">
+        <h3>Le professeur</h3>
+        <div class="teacher-title">
+          <% if @lesson.teacher.photo_user.present? %>
+            <%= cl_image_tag(@lesson.teacher.photo_user, class: "avatar-large") %>
+          <% else %>
+            <%= cl_image_tag(image_path("user-default.jpg"), class: "avatar-large") %>
+          <% end %>
+          <h5><%=@lesson.teacher.first_name%> <%=@lesson.teacher.last_name%></h5>
+        </div>
+        <div class="prof-anna-description">
+          <p style="font-size: 14px"> Comme l'a dit Jacques Prévert, <em>'Il n'y a pas de problèmes,
+          Il n'y a que des professeurs'</em> et sur Lessen il y a des professeurs mais il y a surtout <em>moi</em> - parisienne passionnée par les mathématiques quantiques et les dérivées. Ensemble nous résoudrons tous tes problèmes de maths pour que tu gères au Bac!</p>
+        </div>
+        <h1 class="lign-a"></h1>
+        <h1 class="lign-a"></h1>
+        <%= link_to "Voir le profil", user_path(@lesson.teacher),  class:"text-space-profile" %>
+          <h1 class="lign-a"></h1>
+          <div class="bordure"></div>
+          <h1 class="lign-a"></h1>
+        <h4>Avis sur ce professeur:</h4>
+      </div>
+      <div class="review-box" id="reviews_list">
+        <% if @lesson.teacher.reviews.blank? %>
+          <strong>Pas d'avis d'élèves pour ce professeur</strong>
+        <% else %>
+          <div id="reviews_list">
+            <%= render 'reviews/index', reviews: @lesson.teacher.reviews.order(created_at: :desc) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
